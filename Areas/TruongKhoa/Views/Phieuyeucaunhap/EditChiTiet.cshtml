@@ -1,0 +1,38 @@
+﻿@model DAPM_QLTBYT.Models.Chitietphieuyeucaunhap
+
+@{
+    ViewData["Title"] = "EditChiTiet";
+    Layout = "~/Areas/TruongKhoa/Views/_TruongKhoaLayout.cshtml";
+}
+
+<h1>EditChiTiet</h1>
+
+<h4>Chitietphieuyeucaunhap</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditChiTiet">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaPhieu" />
+            <input type="hidden" asp-for="MaTb" />
+            <div class="form-group">
+                <label asp-for="SoLuongYeuCau" class="control-label">Số lượng yêu cầu</label>
+                <input asp-for="SoLuongYeuCau" class="form-control" />
+                <span asp-validation-for="SoLuongYeuCau" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LyDo" class="control-label">Lý do</label>
+                <input asp-for="LyDo" class="form-control" />
+                <span asp-validation-for="LyDo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="EditDetails" asp-route-id="@Model.MaPhieu">Quay lại</a>
+</div>
+

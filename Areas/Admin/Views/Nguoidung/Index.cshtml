@@ -1,0 +1,85 @@
+﻿@model IEnumerable<DAPM_QLTBYT.Models.Nguoidung>
+
+@{
+    ViewData["Title"] = "Quản lý người dùng";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+
+<h1>Quản lý người dùng</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">Tạo mới</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên người dùng
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Ngày sinh
+            </th>
+            <th>
+                Căn cước công dân
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th>
+                Chức vụ
+            </th>
+            <th>
+                Thuộc khoa
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cccd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @if (item.TrangThai == true)
+                {
+                    <span>Hoạt động</span>
+                }
+                else
+                {
+                    <span>Tạm khóa</span>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaChucVuNavigation.TenChucVu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaKhoaNavigation.TenKhoa)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaNd">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaNd">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaNd">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DAPM_QLTBYT.Models.Chucvu>
+
+@{
+    ViewData["Title"] = "Cập nhật chức vụ";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+
+<h1>Cập nhật chức vụ</h1>
+
+<p>
+    <a asp-action="Create" asp-area="Admin" class="btn btn-outline-success">Tạo mới</a>
+</p>
+<table class="table align-items-center justify-content-center mb-0x">
+    <thead>
+        <tr>
+            <th>
+                Tên chức vụ
+            </th>
+            <th>
+                Hành động
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenChucVu)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaChucVu">Edit</a> | 
+                <a asp-action="Delete" asp-route-id="@item.MaChucVu">Delete</a>
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>

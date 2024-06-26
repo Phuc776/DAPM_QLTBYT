@@ -1,0 +1,64 @@
+﻿@model IEnumerable<DAPM_QLTBYT.Models.Thietbi>
+@{
+    ViewData["Title"] = "SelectThietBi";
+    Layout = "~/Areas/TruongKhoa/Views/_TruongKhoaLayout.cshtml";
+}
+
+<h1>Chọn thiết bị</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên thiết bị
+            </th>
+            <th>
+                Số lượng
+            </th>
+            <th>
+                Xuất xứ
+            </th>
+            <th>
+                Hình ảnh
+            </th>
+            <th>
+                Nhà cung cấp
+            </th>
+            <th>
+                Thuộc danh mục
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenTb)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Xuatxu)
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NhaCungCap)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaDmNavigation.TenDm)
+                </td>
+                <td>
+                    <form asp-action="SelectThietBi" method="post">
+                            <input type="hidden" name="id" value="@item.MaTb" />
+                            <button type="submit" class="btn btn-primary">Chọn</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,55 @@
+﻿@model DAPM_QLTBYT.Models.Chitietphieuyeucaunhap
+
+@{
+    ViewData["Title"] = "AddChiTiet";
+    Layout = "~/Areas/TruongKhoa/Views/_TruongKhoaLayout.cshtml";
+}
+
+<h1>AddChiTiet</h1>
+
+<h4>Chitietphieuyeucaunhap</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddChiTiet" class="shadow p-4 rounded bg-light">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="MaPhieu" type="hidden" value="@ViewBag.MaPhieu" />
+
+            <div class="text-right mb-3">
+                <a asp-action="SelectThietBi" asp-controller="Thietbi" asp-route-maphieu="@ViewBag.MaPhieu" class="btn btn-primary">Chọn thiết bị</a>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MaTb" class="control-label">Thiết bị</label>
+                <input asp-for="MaTb" class="form-control" type="hidden" value="@ViewBag.SelectedIdThietBi" readonly />
+                @if (ViewBag.SelectedTenTB == null)
+                {
+                    <br />
+                    <label style="color : red">Chưa chọn thiết bị nào!</label>
+                }
+                else
+                {
+                    <br />
+                    <label style="color : green">Đã chọn: @ViewBag.SelectedTenTB</label>
+                }
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="SoLuongYeuCau" class="control-label">Số lượng yêu cầu</label>
+                <input asp-for="SoLuongYeuCau" class="form-control" />
+                <span asp-validation-for="SoLuongYeuCau" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LyDo" class="control-label">Lý do</label>
+                <input asp-for="LyDo" class="form-control" />
+                <span asp-validation-for="LyDo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

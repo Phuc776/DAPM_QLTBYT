@@ -1,0 +1,60 @@
+﻿@model DAPM_QLTBYT.Models.Thietbi
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/TruongKhoa/Views/_TruongKhoaLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Thietbi</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaTb" class="control-label"></label>
+                <input asp-for="MaTb" class="form-control" />
+                <span asp-validation-for="MaTb" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenTb" class="control-label"></label>
+                <input asp-for="TenTb" class="form-control" />
+                <span asp-validation-for="TenTb" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoLuong" class="control-label"></label>
+                <input asp-for="SoLuong" class="form-control" />
+                <span asp-validation-for="SoLuong" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Xuatxu" class="control-label"></label>
+                <input asp-for="Xuatxu" class="form-control" />
+                <span asp-validation-for="Xuatxu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HinhAnh" class="control-label"></label>
+                <input asp-for="HinhAnh" class="form-control" />
+                <span asp-validation-for="HinhAnh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NhaCungCap" class="control-label"></label>
+                <input asp-for="NhaCungCap" class="form-control" />
+                <span asp-validation-for="NhaCungCap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaDm" class="control-label"></label>
+                <select asp-for="MaDm" class ="form-control" asp-items="ViewBag.MaDm"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

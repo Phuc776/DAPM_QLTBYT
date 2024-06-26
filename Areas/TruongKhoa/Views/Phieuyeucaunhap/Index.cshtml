@@ -1,0 +1,88 @@
+﻿@model IEnumerable<DAPM_QLTBYT.Models.Phieuyeucaunhap>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/TruongKhoa/Views/_TruongKhoaLayout.cshtml";
+}
+
+<h1>Phiếu yêu cầu cung cấp</h1>
+@if (TempData["errMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["errMessage"]
+    </div>
+}
+<p>
+    <a asp-action="Create" class="btn  btn-outline-success">Tạo phiếu yêu cầu mới</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã phiếu</th>
+            <th>
+                Mã khoa
+            </th>
+            <th>
+                Mã người tạo
+            </th>
+            <th>
+                Ngày tạo
+            </th>
+            <th>
+                Mã người duyệt
+            </th>
+            <th>
+                Ngày duyệt
+            </th>
+            <th>
+                Mã người xác nhận
+            </th>
+            <th>
+                Ngày xác nhận
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th>
+                Hành động
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaPhieu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaKhoaNavigation.MaKhoa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaNguoiTaoNavigation.MaNd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayTao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaNguoiDuyetNavigation.MaNd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayDuyet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaNguoiXacNhanNavigation.MaNd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayXacNhan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                <a asp-action="XemCTPN" asp-route-id="@item.MaPhieu" >Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaPhieu">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

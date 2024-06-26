@@ -1,0 +1,65 @@
+﻿@model IEnumerable<DAPM_QLTBYT.Models.Thietbi>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/TruongKhoa/Views/_TruongKhoaLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Mã thiết bị
+            </th>
+            <th>
+                Tên thiết bị
+            </th>
+            <th>
+                Số lượng
+            </th>
+            <th>
+                Xuất xứ
+            </th>
+            <th>
+                Hình ảnh
+            </th>
+            <th>
+                Nhà cung cấp
+            </th>
+            <th>
+                Thuộc danh mục
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaTb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenTb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Xuatxu)
+            </td>
+            <td>
+                <img style="max-width: 200px; max-height: 200px;" src="~/assets/img/@item.HinhAnh" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NhaCungCap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaDmNavigation.TenDm)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>
